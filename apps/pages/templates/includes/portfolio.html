@@ -1,0 +1,25 @@
+{% load static %}
+
+<!-- Diseño del contenido de sección -->
+<section class="portfolio" id="portafolio">
+    <h2 class="heading">Mis <span>Proyectos</span></h2>
+
+    <div class="portfolio-container">
+
+        {% comment for %} Inicializamos un bucle que mostrará todos nuestros proyectos {% endcomment %}
+        {% for p in projects %}
+            <div class="portfolio-box">
+                
+                {% if p.image %}
+                    <img src="{{ p.image.url }}" alt="{{ p.title }}">
+                {% endif %}
+
+                <div class="portfolio-layer">
+                    <h4>{{ p.title }}</h4>
+                    <p>{{ p.description }}</p>
+                    <a href="{{ p.url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
